@@ -1,0 +1,17 @@
+<h2>All Posts</h2>
+<% if (posts.length > 0) { %>
+  <ul>
+    <% posts.forEach(post => { %>
+      <li>
+        <h3><%= post.title %></h3>
+        <p><%= post.content %></p>
+        <a href="/edit-post/<%= post.id %>">Edit</a>
+        <form action="/delete-post/<%= post.id %>" method="POST" class="delete-form" style="display:inline;">
+          <button type="submit">Delete</button>
+        </form>
+      </li>
+    <% }) %>
+  </ul>
+<% } else { %>
+  <p>No posts yet. <a href="/new-post">Create a new post</a>.</p>
+<% } %>
